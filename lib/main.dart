@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:test_flutter/constant/Fonts.dart';
+import 'package:test_flutter/route/Routes.dart';
+import 'package:test_flutter/screen/auth/LoginScreen.dart';
+import 'package:test_flutter/screen/auth/RegisterScreen.dart';
+import 'package:test_flutter/screen/onboard/OnBoardingScreen.dart';
+import 'package:test_flutter/screen/splash/SplashScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -6,10 +13,18 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  Map<String, WidgetBuilder> _routes = <String, WidgetBuilder>{
+    SPLASH_SCREEN: (BuildContext context) => new SplashScreen(),
+    ONBOARD_SCREEN: (BuildContext context) => new OnBoardingScreen(),
+    LOGIN_SCREEN: (BuildContext context) => new LoginScreen(),
+    REGISTER_SCREEN: (BuildContext context) => new RegisterScreen(),
+  };
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Platter-Tutorial',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -21,12 +36,14 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.green,
+        fontFamily: POPPINS,
         // This makes the visual density adapt to the platform that you run
         // the app on. For desktop platforms, the controls will be smaller and
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home HAHA'),
+      home: SplashScreen(),
+      routes: _routes,
     );
   }
 }
