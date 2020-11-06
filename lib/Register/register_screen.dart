@@ -9,20 +9,23 @@ class RegisterScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_outlined, color: Colors.black),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
         actions: [
           FlatButton(
             textColor: colorBlack,
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => LoginScreen())
-              );
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()));
             },
             child: Text("Sign In"),
             shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
           )
         ],
       ),
+      resizeToAvoidBottomPadding: false,
       body: Body(),
     );
   }

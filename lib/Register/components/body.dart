@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:test_flutter/Register/components/background.dart';
 import 'package:test_flutter/Splash/splash_screen.dart';
 import 'package:test_flutter/widget/rounded_button_wide.dart';
+import 'package:test_flutter/widget/rounded_input_field.dart';
+import 'package:test_flutter/widget/rounded_password_field.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -10,12 +12,13 @@ class Body extends StatelessWidget {
 
   _showModalBottomSheet(context) {
     return Container(
-      height: MediaQuery.of(context).copyWith().size.height,
+      height: MediaQuery.of(context).size.height,
       width: double.infinity,
       margin: EdgeInsets.only(top: 16),
       color: Colors.transparent, //could change this to Color(0xFF737373),
       //so you don't have to change MaterialApp canvasColor
       child: Container(
+          padding: EdgeInsets.only(top: 16),
           decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
@@ -30,9 +33,8 @@ class Body extends StatelessWidget {
                 ),
               ]),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
+            children: [
               Container(
                 child: Text(
                   "Sign Up",
@@ -42,20 +44,45 @@ class Body extends StatelessWidget {
                 margin: EdgeInsets.all(16.0),
               ),
               Container(
-                child: Center(
-                  child: RoundedButtonWide(
-                    text: "Sign Up",
-                    press: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SplashScreen(),
-                        ),
-                      );
-                    },
-                  ),
+                margin: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                child: RoundedInputField(
+                  hintText: "Email",
+                  onChanged: (value) {},
                 ),
-              )
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                child: RoundedInputField(
+                  hintText: "Username",
+                  onChanged: (value) {},
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                child: RoundedPasswordField(
+                  hintText: "Password",
+                  onChanged: (value) {},
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 16, right: 16),
+                child: RoundedPasswordField(
+                  hintText: "Confirm Password",
+                  onChanged: (value) {},
+                ),
+              ),
+              Spacer(),
+              RoundedButtonWide(
+                text: "Sign Up",
+                press: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SplashScreen(),
+                    ),
+                  );
+                },
+              ),
             ],
           )),
     );
@@ -66,7 +93,7 @@ class Body extends StatelessWidget {
     return Background(
       child: SingleChildScrollView(
         child: Column(
-          children: <Widget>[_showModalBottomSheet(context)],
+          children: [_showModalBottomSheet(context)],
         ),
       ),
     );

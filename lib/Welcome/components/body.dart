@@ -95,8 +95,15 @@ class Body extends StatelessWidget {
     return Background(
       child: SingleChildScrollView(
         child: Column(
-          children: <Widget>[
-            SizedBox(height: size.height * 0.5),
+          children: [
+            Container(
+                margin: EdgeInsets.all(8),
+                padding: EdgeInsets.only(bottom: 16),
+                child: Column(
+                    children: <Widget>[
+                      Image.asset('assets/images/flask.png', scale: 1.5),
+                    ]),
+              ),
             _showModalBottomSheet(context)
           ],
         ),

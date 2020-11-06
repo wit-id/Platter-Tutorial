@@ -12,21 +12,20 @@ class Background extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      height: size.height,
+     height: size.height,
       width: double.infinity,
       child: Stack(
+        alignment: Alignment.bottomCenter,
         children: <Widget>[
-          Positioned.fill(
-            child: Container(
-              decoration: BoxDecoration(
+          Container(
+            decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [colorGreenLight, colorGreenDark]),
-              ),
-              child: child,
-            ),
-          )
+              )
+          ),
+          child
         ],
       ),
     );

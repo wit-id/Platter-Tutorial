@@ -16,19 +16,6 @@ class Background extends StatelessWidget {
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: <Widget>[
-          Positioned(
-              width: MediaQuery.of(context)
-                  .size
-                  .width, //TRY TO CHANGE THIS **0.30** value to achieve your goal
-              child: Container(
-                margin: EdgeInsets.all(8),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset('assets/images/flask.png', scale: 1.5),
-                      SizedBox(height: size.height * 0.5)
-                    ]),
-              )),
           child,
         ],
       ),
