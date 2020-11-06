@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import './widgets/home_opening.dart';
-import './widgets/home.dart';
+import 'screens/home.dart';
+import './screens/sign_in.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,6 +30,9 @@ class MyApp extends StatelessWidget {
         )
       ),
       home: Home(),
+      routes: {
+        SignIn.routeName: (ctx) => SignIn()
+      },
     );
   }
 }

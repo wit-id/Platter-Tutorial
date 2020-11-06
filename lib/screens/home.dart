@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'sign_in.dart';
+
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -73,7 +75,7 @@ class Home extends StatelessWidget {
                               height: 50,
                               child: FlatButton(
                                 child: Text('Sign in'),
-                                onPressed: (){},
+                                onPressed: () => Navigator.of(context).pushNamed(SignIn.routeName),
                                 color: Colors.black,
                                 textColor: Colors.white,
                                 shape: RoundedRectangleBorder(
