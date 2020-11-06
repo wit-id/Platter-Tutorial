@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test_flutter/screens/sign_in_screen.dart';
+import 'package:test_flutter/screens/sign_up_screen.dart';
 import 'package:test_flutter/utils/colors.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -16,7 +18,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  TextStyle style = TextStyle(fontFamily: 'Poppins', fontSize: 20.0);
+  TextStyle style = TextStyle(fontFamily: 'Poppins', fontSize: 16.0);
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +26,12 @@ class _MyHomePageState extends State<MyHomePage> {
       elevation: 5.0,
       borderRadius: BorderRadius.circular(30.0),
       color: Color(0xff000000),
+      shadowColor: Colors.transparent,
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        onPressed: () {},
+        onPressed: () =>
+            Navigator.of(context).pushNamed(SignInScreen.routeName),
         child: Text("Sign in",
             textAlign: TextAlign.center,
             style: style.copyWith(
@@ -39,10 +43,12 @@ class _MyHomePageState extends State<MyHomePage> {
       elevation: 5.0,
       borderRadius: BorderRadius.circular(30.0),
       color: Color(0xffffffff),
+      shadowColor: Colors.transparent,
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        onPressed: () {},
+        onPressed: () =>
+            Navigator.of(context).pushNamed(SignUpScreen.routeName),
         child: Text("Sign up",
             textAlign: TextAlign.center,
             style: style.copyWith(
@@ -71,11 +77,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         Expanded(
           child: Align(
-            alignment: Alignment.bottomCenter,
+            alignment: Alignment.bottomLeft,
             child: Container(
               alignment: Alignment.bottomCenter,
-              padding: EdgeInsets.only(left: 24, right: 24, bottom: 60),
-              height: 360,
+              padding: EdgeInsets.only(left: 30, right: 30, bottom: 60),
+              height: 320,
               decoration: BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
@@ -87,15 +93,40 @@ class _MyHomePageState extends State<MyHomePage> {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(40),
                       topRight: Radius.circular(40))),
-              child: Row(
-                children: <Widget>[
-                  Expanded(child: loginButon),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Expanded(child: signupButton)
-                ],
-              ),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text("Welcome",
+                        textAlign: TextAlign.left,
+                        style: style.copyWith(
+                            color: Colors.black,
+                            fontSize: 28,
+                            fontWeight: FontWeight.w500)),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    Text(
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                        textAlign: TextAlign.left,
+                        style: style.copyWith(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.normal)),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Expanded(child: loginButon),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Expanded(child: signupButton)
+                      ],
+                    ),
+                  ]),
             ),
           ),
         )

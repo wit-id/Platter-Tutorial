@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/main_auth_screen.dart';
+import 'screens/sign_in_screen.dart';
+import 'screens/sign_up_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,7 +31,8 @@ class MyApp extends StatelessWidget {
       ),
       home: MyHomePage(),
       routes: {
-        //     ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
+        SignInScreen.routeName: (ctx) => SignInScreen(),
+        SignUpScreen.routeName: (ctx) => SignUpScreen(),
         //     CartScreen.routeName: (ctx) => CartScreen(),
         //     OrdersScreen.routeName: (ctx) => OrdersScreen(),
         //     UserProductsScreen.routeName: (ctx) => UserProductsScreen(),
