@@ -15,7 +15,6 @@ class Background extends StatelessWidget {
      height: size.height,
       width: double.infinity,
       child: Stack(
-        alignment: Alignment.bottomCenter,
         children: <Widget>[
           Container(
             decoration: BoxDecoration(

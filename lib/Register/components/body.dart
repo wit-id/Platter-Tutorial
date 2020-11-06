@@ -19,6 +19,7 @@ class Body extends StatelessWidget {
       //so you don't have to change MaterialApp canvasColor
       child: Container(
           padding: EdgeInsets.only(top: 16),
+          constraints: BoxConstraints.expand(),
           decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
@@ -91,10 +92,8 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Background(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [_showModalBottomSheet(context)],
-        ),
+      child: Container(
+        child: _showModalBottomSheet(context),
       ),
     );
   }
