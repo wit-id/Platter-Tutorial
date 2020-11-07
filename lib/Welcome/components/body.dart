@@ -92,17 +92,19 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Background(
-      child: SingleChildScrollView(
+      child: Container(
         child: Column(
           children: [
+            Spacer(),
             Container(
-                margin: EdgeInsets.all(8),
-                padding: EdgeInsets.only(bottom: 16),
-                child: Column(
-                    children: <Widget>[
-                      Image.asset('assets/images/flask.png', scale: 1.5),
-                    ]),
-              ),
+              margin: EdgeInsets.all(8),
+              padding: EdgeInsets.only(bottom: 16),
+              child: Column(
+                children: <Widget>[
+                Image.asset('assets/images/flask.png', scale: 1.5),
+              ]),
+            ),
+            Spacer(),
             _showModalBottomSheet(context)
           ],
         ),
