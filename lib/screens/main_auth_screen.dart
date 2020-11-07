@@ -103,9 +103,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         style: style.copyWith(
                             color: Colors.black,
                             fontSize: 28,
-                            fontWeight: FontWeight.w500)),
+                            fontWeight: FontWeight.bold)),
                     SizedBox(
-                      height: 50,
+                      height: 40,
                     ),
                     Text(
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",

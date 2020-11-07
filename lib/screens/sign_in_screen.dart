@@ -149,7 +149,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           fontSize: 28,
                           fontWeight: FontWeight.w500)),
                   SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   emailField,
                   SizedBox(
@@ -158,7 +158,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   passwordField,
                   Align(
                       alignment: Alignment.centerRight,
-                      child: SizedBox(width: 120, child: forgotButton)),
+                      child: SizedBox(width: 140, child: forgotButton)),
                   SizedBox(
                     height: 10,
                   ),

@@ -162,7 +162,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           fontSize: 28,
                           fontWeight: FontWeight.w500)),
                   SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   emailField,
                   SizedBox(
@@ -178,7 +178,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   confirmPasswordField,
                   SizedBox(
-                    height: 80,
+                    height: 70,
                   ),
                   Row(
                     children: <Widget>[Expanded(child: signupButon)],
