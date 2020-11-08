@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_flutter/screens/login_screen.dart';
 import 'package:test_flutter/screens/onboarding_screen.dart';
+import 'package:test_flutter/utils/app_keys.dart';
 import 'package:test_flutter/utils/slide_right_route.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -21,6 +22,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         backgroundColor: Colors.transparent,
         leading: FlatButton(
           child: Image.asset('assets/images/back.png'),
+          key: ValueKey(BACK_REGISTER_BUTTON),
           onPressed: () {
             Navigator.of(context).pushReplacement(
               SlideRightRoute(
@@ -40,6 +42,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               );
             },
+            key: ValueKey(LOGIN_ONREGISTER_BUTTON),
             child: Text(
               "Login",
               style: TextStyle(

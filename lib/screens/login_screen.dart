@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/screens/onboarding_screen.dart';
 import 'package:test_flutter/screens/register_screen.dart';
+import 'package:test_flutter/utils/app_keys.dart';
 import 'package:test_flutter/utils/slide_right_route.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -20,6 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.transparent,
         leading: FlatButton(
           child: Image.asset('assets/images/back.png'),
+          key: ValueKey(BACK_LOGIN_BUTTON),
           onPressed: () {
             Navigator.of(context).pushReplacement(
               SlideRightRoute(
@@ -39,6 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               );
             },
+            key: ValueKey(REGISTER_ONLOGIN_BUTTON),
             child: Text(
               "Register",
               style: TextStyle(

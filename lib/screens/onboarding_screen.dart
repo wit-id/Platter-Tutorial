@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/screens/login_screen.dart';
 import 'package:test_flutter/screens/register_screen.dart';
+import 'package:test_flutter/utils/app_keys.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   OnBoardingScreen({Key key}) : super(key: key);
@@ -76,6 +77,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         child: Text(
                           "Welcome",
                           textAlign: TextAlign.left,
+                          key: ValueKey(WELCOME_TEXT_KEY),
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 24.0,
@@ -110,6 +112,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30.0),
                               ),
+                              key: ValueKey(SIGN_IN_BUTTON),
                               color: Color(0xFF171D1C),
                               onPressed: () {
                                 navigate(isLogin: true);
@@ -133,6 +136,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30.0),
                               ),
+                              key: ValueKey(SIGN_UP_BUTTON),
                               color: Color(0xFFFFFFFF),
                               onPressed: () {
                                 navigate();

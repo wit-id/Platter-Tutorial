@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:test_flutter/screens/onboarding_screen.dart';
+import 'package:test_flutter/utils/app_keys.dart';
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key key}) : super(key: key);
@@ -44,6 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
               image: AssetImage(
                 'assets/images/splash.png',
               ),
+              key: ValueKey(SPLASH_IMAGE_KEY),
               width: 120.0,
             ),
           ),
