@@ -4,6 +4,7 @@ const String SPLASH_IMAGE_KEY = "splash_image_key";
 const String WELCOME_TEXT_KEY = "welcome_text_key";
 const String SIGN_IN_BUTTON = "sign_in_button";
 const String SIGN_UP_BUTTON = "sign_up_button";
+const String TEST_BUTTON = "test_button";
 
 // login screen
 const String REGISTER_ONLOGIN_BUTTON = "register_onlogin_button";

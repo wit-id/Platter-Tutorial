@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/screens/login_screen.dart';
 import 'package:test_flutter/screens/register_screen.dart';
+import 'package:test_flutter/screens/test_screen.dart';
 import 'package:test_flutter/utils/app_keys.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -151,6 +152,31 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           ),
                         ),
                       ],
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: RaisedButton(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        key: ValueKey(TEST_BUTTON),
+                        color: Color(0xFFFFFFFF),
+                        onPressed: () async {
+                          await Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) {
+                                return TestScreen();
+                              },
+                            ),
+                          );
+                        },
+                        child: Text(
+                          "Test Screen",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),

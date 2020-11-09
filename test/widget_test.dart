@@ -11,37 +11,38 @@
 // import 'package:test_flutter/main.dart';
 // import 'package:test_flutter/screens/onboarding_screen.dart';
 
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/mockito.dart';
+import 'package:test_flutter/data/domain/location_domain.dart';
+import 'package:test_flutter/data/models/location.dart';
+import 'package:test_flutter/data/repository/location_repository.dart';
+
+class MockDio extends Mock implements Dio {}
+
 void main() {
-  // testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-  //   // Build our app and trigger a frame.
-  //   await tester.pumpWidget(MyApp());
+  test('Dio testing', () async {
+    final mockDio = MockDio();
+    when(
+      mockDio.get("https://google.com"),
+    ).thenAnswer(
+      (invocation) => Future.value(Response()),
+    );
+  });
 
-  //   // Verify that our counter starts at 0.
-  //   expect(find.text('0'), findsOneWidget);
-  //   expect(find.text('1'), findsNothing);
+  test('Domain & repository testing', () async {
+    final mockRepository = LocationRepository();
+    final domain = LocationDomain(mockRepository);
+    final mockCity = "Bandung";
 
-  //   // Tap the '+' icon and trigger a frame.
-  //   await tester.tap(find.byIcon(Icons.add));
-  //   await tester.pump();
+    final location = Location.fromJson(
+      jsonDecode(
+        '{"location_suggestions":[{"entity_type": "city","entity_id": 11052,"title": "Bandung","latitude": -6.916055,"longitude": 107.628391,"city_id": 11052,"city_name": "Bandung","country_id": 94,"country_name": "Indonesia"}],"status": "success","has_more": 0,"has_total": 0,"user_has_addresses": true}',
+      ),
+    );
 
-  //   // Verify that our counter has incremented.
-  //   expect(find.text('0'), findsNothing);
-  //   expect(find.text('1'), findsOneWidget);
-  // });
-
-  // testWidgets('Navigate to login test', (WidgetTester tester) async {
-  //   await tester.pumpWidget(MyApp());
-
-  //   // waiting onboarding screen
-  //   await Future.delayed(const Duration(seconds: 3));
-
-  //   // find welcome text
-  //   expect(find.text('Welcome'), findsOneWidget);
-
-  //   await tester.tap(find.text('Sign In'));
-  //   await tester.pump();
-
-  //   expect(find.text('Sign In'), findsOneWidget);
-  //   expect(find.text('Welcome'), findsNothing);
-  // });
+    expect(await domain.getLocation(mockCity), location);
+  });
 }
