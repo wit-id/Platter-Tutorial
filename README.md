@@ -36,9 +36,9 @@ flutter pub run build_runner watch
 
 ## Todo
 
-- Explore more about BLoC
-- Setup Flavor for each stage
-- Search street food (Test Page)
-- More about unit test
-- More about integration test
-- Setup with Azure Cloud
+- [ ] Explore more about BLoC
+- [ ] Setup Flavor for each stage
+- [ ] Search street food (Test Page)
+- [ ] More about unit test
+- [ ] More about integration test
+- [ ] Setup with Azure Cloud
