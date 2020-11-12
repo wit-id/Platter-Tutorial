@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test_flutter/Splash/components/body.dart';
+import 'package:test_flutter/Screens/Welcome/components/body.dart';
 
-class SplashScreen extends StatelessWidget {
+class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:test_flutter/Register/components/background.dart';
-import 'package:test_flutter/Splash/splash_screen.dart';
-import 'package:test_flutter/widget/rounded_button_wide.dart';
-import 'package:test_flutter/widget/rounded_input_field.dart';
-import 'package:test_flutter/widget/rounded_password_field.dart';
+import 'package:test_flutter/Screens/Register/components/background.dart';
+import 'package:test_flutter/Screens/Welcome/welcome_screen.dart';
+import 'package:test_flutter/Widgets/rounded_button_wide.dart';
+import 'package:test_flutter/Widgets/rounded_input_field.dart';
+import 'package:test_flutter/Widgets/rounded_password_field.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -79,7 +79,7 @@ class Body extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SplashScreen(),
+                      builder: (context) => WelcomeScreen(),
                     ),
                   );
                 },

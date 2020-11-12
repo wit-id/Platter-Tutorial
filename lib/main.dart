@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_flutter/Splash/splash_screen.dart';
+import 'package:test_flutter/Screens/Splash/splash_screen.dart';
 import 'constant.dart';
 
 void main() {

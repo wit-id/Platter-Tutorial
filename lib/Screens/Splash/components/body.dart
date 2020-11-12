@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'background.dart';
-import 'package:test_flutter/Welcome/welcome_screen.dart';
+import 'package:test_flutter/Screens/Splash/components/background.dart';
+import 'package:test_flutter/Screens/Welcome/welcome_screen.dart';
 
 class Body extends StatefulWidget {
   @override

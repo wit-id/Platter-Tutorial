@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:test_flutter/Login/login_screen.dart';
-import 'package:test_flutter/Register/register_screen.dart';
-import 'package:test_flutter/Welcome/components/background.dart';
-import 'package:test_flutter/widget/rounded_button_black.dart';
+import 'package:test_flutter/Screens/Login/login_screen.dart';
+import 'package:test_flutter/Screens/Register/register_screen.dart';
+import 'package:test_flutter/Screens/Welcome/components/background.dart';
+import 'package:test_flutter/Widgets/rounded_button_black.dart';
+import 'package:test_flutter/Widgets/rounded_button_white.dart';
 import 'package:test_flutter/constant.dart';
-import 'package:test_flutter/widget/rounded_button_white.dart';
 
 class Body extends StatelessWidget {
   const Body({
