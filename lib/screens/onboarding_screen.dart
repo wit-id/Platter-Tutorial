@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/screens/login_screen.dart';
+import 'package:test_flutter/screens/news_screen.dart';
 import 'package:test_flutter/screens/register_screen.dart';
 import 'package:test_flutter/screens/test_screen.dart';
 import 'package:test_flutter/utils/app_keys.dart';
@@ -165,13 +166,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           await Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (_) {
-                                return TestScreen();
+                                return NewsScreen();
                               },
                             ),
                           );
                         },
                         child: Text(
-                          "Test Screen",
+                          "News Screen",
                           style: TextStyle(
                             color: Colors.black,
                           ),
