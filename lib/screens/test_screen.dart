@@ -72,6 +72,10 @@ class _TestScreenState extends State<TestScreen> {
                               ),
                             ),
                             subtitle: Text(""),
+                            onTap: () {
+                              _locationBloc.selectLocation(
+                                  state.locations.locationSuggestions[index]);
+                            },
                           );
                         },
                       );

@@ -12,8 +12,6 @@ class LocationRepository {
         "https://developers.zomato.com/api/v2.1/locations?query=$query",
         options: Options(headers: {"user-key": API_KEY}),
       );
-      debugPrint("huwiw");
-      debugPrint("$response");
       return Location.fromJson(response.data);
     } catch (e) {
       return e;

@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_flutter/screens/splash_screen.dart';
+import 'package:test_flutter/utils/dio_client.dart';
+import 'package:test_flutter/utils/news_bloc_observer.dart';
 
 void main() {
+  Bloc.observer = NewsBlocObserver();
+  DioClient();
   runApp(MyApp());
 }
 

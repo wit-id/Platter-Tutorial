@@ -1,1 +1,2 @@
-const String API_KEY = '42ced69cd25eefef6baef5a672e1abb9';
+const String API_KEY = 'YOUR_API_KEY';
+const String NEWS_API_KEY = 'YOUR_API_KEY';
