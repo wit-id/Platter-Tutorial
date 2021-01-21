@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/Screens/Splash/splash_screen.dart';
+import 'package:test_flutter/blocs/bloc_provider.dart';
+import 'package:test_flutter/blocs/location_bloc/location_bloc.dart';
 import 'constant.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Test',
-      theme: ThemeData(
-        primaryColor: colorGreenLight,
-        scaffoldBackgroundColor: Colors.white,
-        backgroundColor: Colors.white
+    return BlocProvider<LocationBloc>(
+      bloc: LocationBloc(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Test',
+        theme: ThemeData(
+          primaryColor: colorGreenLight,
+          scaffoldBackgroundColor: Colors.white,
+          backgroundColor: Colors.white
+        ),
+        home: SplashScreen(),
       ),
-      home: SplashScreen(),
     );
   }
 }
