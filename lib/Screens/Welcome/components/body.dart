@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:test_flutter/Screens/Login/login_screen.dart';
+// import 'package:test_flutter/Screens/Login/login_screen.dart';
 import 'package:test_flutter/Screens/Register/register_screen.dart';
 import 'package:test_flutter/Screens/Welcome/components/background.dart';
+import 'package:test_flutter/Screens/location/location_screen.dart';
 import 'package:test_flutter/Widgets/rounded_button_black.dart';
 import 'package:test_flutter/Widgets/rounded_button_white.dart';
 import 'package:test_flutter/constant.dart';
@@ -64,7 +65,7 @@ class Body extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => LoginScreen(),
+                              builder: (context) => LocationScreen(),
                             ),
                           );
                         },
