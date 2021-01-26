@@ -1,80 +1,83 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_progress_button/flutter_progress_button.dart';
+import 'package:test_flutter/Screens/home/home_screen.dart';
 import 'package:test_flutter/Screens/location/components/background.dart';
-import 'package:test_flutter/blocs/bloc_provider.dart';
-import 'package:test_flutter/blocs/location_bloc/location_bloc.dart';
-import 'package:test_flutter/blocs/location_bloc/location_query_bloc.dart';
-import 'package:test_flutter/repositories/location.dart';
+import 'package:test_flutter/constant.dart';
 
 class Body extends StatelessWidget {
-  const Body({
-    Key key,
-  }) : super(key: key);
+  const Body({Key key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    final bloc = LocationQueryBloc();
-    return BlocProvider<LocationQueryBloc>(
-      bloc: bloc,
-      child: Background(
+  _showModalBottomSheet(context) {
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      width: double.infinity,
+      margin: EdgeInsets.only(top: 16),
+      color: Colors.transparent, //could change this to Color(0xFF737373),
+      //so you don't have to change MaterialApp canvasColor
+      child: Container(
+        padding: EdgeInsets.only(top: 16),
+        constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(40.0),
+                topRight: Radius.circular(40.0)),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 3,
+                blurRadius: 7,
+                offset: Offset(0, 3), // changes position of shadow
+              ),
+            ]),
         child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(), hintText: 'Enter a location'),
-                onChanged: (query) {},
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Spacer(),
+            Container(
+              margin: EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  ProgressButton(
+                    defaultWidget: const Text(
+                      'Exit',
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
+                    progressWidget: const CircularProgressIndicator(),
+                    width: double.infinity,
+                    height: 70,
+                    borderRadius: 10,
+                    animate: true,
+                    color: colorGreyDark,
+                    type: ProgressButtonType.Raised,
+                    onPressed: () async {
+                      int score = await Future.delayed(
+                          const Duration(milliseconds: 1000), () => 42);
+                      // After [onPressed], it will trigger animation running backwards, from end to beginning
+                      return () {
+                        print(score);
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeScreen(),
+                          ),
+                        );
+                      };
+                    },
+                  ),
+                ],
               ),
             ),
-            Expanded(
-              child: _buildResults(bloc),
-            )
           ],
         ),
       ),
     );
   }
 
-  Widget _buildResults(LocationQueryBloc bloc) {
-    return StreamBuilder<List<Location>>(
-      stream: bloc.locationStream,
-      builder: (context, snapshot) {
-
-        // 1
-        final results = snapshot.data;
-
-        if (results == null) {
-          return Center(child: Text('Enter a location'));
-        }
-
-        if (results.isEmpty) {
-          return Center(child: Text('No Results'));
-        }
-
-        return _buildSearchResults(results);
-      },
-    );
-  }
-
-  Widget _buildSearchResults(List<Location> results) {
-    // 2
-    return ListView.separated(
-      itemCount: results.length,
-      separatorBuilder: (BuildContext context, int index) => Divider(),
-      itemBuilder: (context, index) {
-        final location = results[index];
-        return ListTile(
-          title: Text(location.title),
-          onTap: () {
-            final locationBloc = BlocProvider.of<LocationBloc>(context);
-            locationBloc.selectLocation(location);
-
-            if (isFullScreenDialog) {
-              Navigator.of(context).pop();
-            }
-          },
-        );
-      },
+  @override
+  Widget build(BuildContext context) {
+    return Background(
+      child: _showModalBottomSheet(context),
     );
   }
 }

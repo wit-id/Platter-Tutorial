@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:test_flutter/Screens/Splash/splash_screen.dart';
-import 'package:test_flutter/blocs/bloc_provider.dart';
-import 'package:test_flutter/blocs/location_bloc/location_bloc.dart';
 import 'constant.dart';
 
 void main() => runApp(MyApp());
@@ -10,8 +8,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<LocationBloc>(
-      bloc: LocationBloc(),
+    return Container(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Test',

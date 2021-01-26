@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_progress_button/flutter_progress_button.dart';
 import 'package:test_flutter/Screens/Login/components/background.dart';
 import 'package:test_flutter/Screens/Welcome/welcome_screen.dart';
-import 'package:test_flutter/Widgets/rounded_button_wide.dart';
+import 'package:test_flutter/Screens/home/home_screen.dart';
 import 'package:test_flutter/Widgets/rounded_input_field.dart';
 import 'package:test_flutter/Widgets/rounded_password_field.dart';
 import 'package:test_flutter/constant.dart';
@@ -75,20 +76,40 @@ class Body extends StatelessWidget {
               ),
               Spacer(),
               Container(
-                child: Center(
-                  child: RoundedButtonWide(
-                    text: "Sign In",
-                    press: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => WelcomeScreen(),
-                        ),
-                      );
-                    },
-                  ),
+                margin: EdgeInsets.all(16.0),
+                alignment: Alignment.center,
+                child: Column(
+                  children: [
+                    ProgressButton(
+                      defaultWidget: const Text(
+                        'Sign In',
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
+                      progressWidget: const CircularProgressIndicator(),
+                      width: double.infinity,
+                      height: 50,
+                      borderRadius: 30,
+                      animate: true,
+                      color: Colors.black,
+                      type: ProgressButtonType.Raised,
+                      onPressed: () async {
+                        int score = await Future.delayed(
+                            const Duration(milliseconds: 1000), () => 42);
+                        // After [onPressed], it will trigger animation running backwards, from end to beginning
+                        return () {
+                          print(score);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomeScreen(),
+                            ),
+                          );
+                        };
+                      },
+                    ),
+                  ],
                 ),
-              )
+              ),
             ],
           )),
     );

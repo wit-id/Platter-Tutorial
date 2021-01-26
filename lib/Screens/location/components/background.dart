@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_flutter/constant.dart';
 
 class Background extends StatelessWidget {
   final Widget child;
@@ -15,7 +16,15 @@ class Background extends StatelessWidget {
       width: double.infinity,
       child: Stack(
         children: <Widget>[
-          child,
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [colorGreenLight, colorGreenDark]),
+              )
+          ),
+          child
         ],
       ),
     );
